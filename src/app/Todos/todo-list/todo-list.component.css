@@ -1,0 +1,9 @@
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content:space-around;
+    border: rgb(20, 20, 19);
+    
+}
+

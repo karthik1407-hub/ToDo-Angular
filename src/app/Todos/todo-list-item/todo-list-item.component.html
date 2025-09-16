@@ -1,0 +1,34 @@
+
+
+
+<div class="todo-item" >
+      <p class="title">{{title}}
+        <br>
+        Is Completed: {{isComplete()}}
+        <br>
+        Status: {{staus}}
+        </p>
+        <h4 *ngIf="isComplete()" Else #Message  >
+           Task is Completed Successfully
+        </h4>
+        <ng-template #Message>
+            <h1>Task Need To be Completed</h1>
+        </ng-template>
+        <h4 *ngIf="!isComplete()">
+            task is yet to be started
+         </h4>
+        <h4 *ngIf="!isComplete()">
+            Task is pending... Need to be completed
+         </h4>
+         <input
+           type="text"
+           id="inputBox"
+           [(ngModel)]="inputValue"
+           (keyup)="updateDisplay()" />
+         
+         <h4 id="show">{{ displayValue}}</h4>
+        <button type="button" [disabled]="buttonDisable()" (click)="toggleCompleted() ">Completed</button>
+        <button type="button" [disabled]="!buttonDisable()" (click)="toggleCompleted()">Not Completed</button>
+        <button type="button" [disabled]="!buttonDisable()" (click)="toggleCancel() ">Cancelled</button>
+
+</div>
