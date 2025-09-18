@@ -30,14 +30,7 @@ toggleIsNotCompleted(){
   this.isNotComplete.set(false);  
   this.staus = Status.Completed;
 }
-
-toggleCancel(){
-  this.isComplete.set(false);
-  this.staus = Status.NeedToStart;
-}
  
-
-
 inputValue: string = '';
 displayValue: string = '';
 
@@ -48,7 +41,6 @@ displayValue: string = '';
 
 enum Status {
   ToDo = "ToDo",
-  NeedToStart = "Need To Start",
   InProgress = "In Progress",
   Completed = "Completed"
 }

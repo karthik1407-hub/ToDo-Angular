@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-
+todos : TodoItem[] = [
+  {
+    title: 'Items'
+  },
+  {
+    title: 'ToDo'
+  },
+  {
+    title: 'In Progress'
+  },
+  {
+    title: 'Completed'
+  }
+];
+}
+interface TodoItem{
+title: string;
 }
