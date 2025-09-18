@@ -4,6 +4,6 @@
     gap: 10px;
     justify-content:space-around;
     border: rgb(20, 20, 19);
-    
+   flex-wrap: wrap;
 }
 
