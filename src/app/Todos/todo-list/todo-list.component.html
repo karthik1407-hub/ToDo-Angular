@@ -1,5 +1,8 @@
 <h2>ToDo List</h2>
-<div class="container" style="border: 2px solid black; padding: 10px;">
+<input type="text" placeholder="Add new todo item" #InputValue />
+<button (click)="add(InputValue.value)">Add</button>
+<br /><br />
+<div class="container" style="border: 2px solid black; padding: 5px;">
     <div class="todo-list grid-row">
         <div *ngFor="let todo of todos" class="grid-col">
             <app-todo-list-item [title]="todo.title"></app-todo-list-item>

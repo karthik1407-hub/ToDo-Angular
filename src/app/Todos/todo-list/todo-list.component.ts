@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,21 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-todos : TodoItem[] = [
-  {
-    title: 'Items'
-  },
-  {
-    title: 'ToDo'
-  },
-  {
-    title: 'In Progress'
-  },
-  {
-    title: 'Completed'
+  // constructor(private todoService: TodoService) {}
+  // todos = this.todoService.getTodos();
+  todoService = inject(TodoService);
+  todos = this.todoService.getTodos();
+
+  add(text: string){
+    this.todoService.addTodo(text);
+    this.todos = this.todoService.getTodos();
   }
-];
-}
-interface TodoItem{
-title: string;
 }

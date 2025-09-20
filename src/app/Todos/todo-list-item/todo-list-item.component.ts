@@ -1,4 +1,5 @@
 import { Component, Input, signal } from '@angular/core';
+import { Inject } from '@angular/core';
 
 
 @Component({
@@ -7,11 +8,15 @@ import { Component, Input, signal } from '@angular/core';
   styleUrls: ['./todo-list-item.component.css']
 })
 export class TodoListItemComponent {
+isHighlighted =false;
 @Input() title:string="";
-
+item(){
+  document.getElementById('todo-item');
+}  
 //Declaration of isComplete as a signal
 isComplete = signal<boolean>(false);
 isNotComplete = signal<boolean>(true);
+
 
 //Disable button when the task is completed
 buttonDisable(){
@@ -24,19 +29,19 @@ staus: Status = Status.ToDo;
 toggleCompleted(){
   this.isComplete.update((currentValue)=>!currentValue);
   this.staus = this.isComplete() ? Status.Completed : Status.ToDo;
+  
+  this.isHighlighted=!this.isHighlighted;
 }
 
-toggleIsNotCompleted(){
-  this.isNotComplete.set(false);  
-  this.staus = Status.Completed;
-}
- 
-inputValue: string = '';
-displayValue: string = '';
+displayValue= signal<string>(" ");
 
-  updateDisplay() {
-    this.displayValue = this.inputValue;
-  }
+updateDisplay(event: KeyboardEvent) {
+  const inputElement = event.target as HTMLInputElement;
+  this.displayValue.set(inputElement.value);
+}
+
+
+
 }
 
 enum Status {

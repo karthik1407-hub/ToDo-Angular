@@ -1,4 +1,6 @@
-<div class="todo-item">
+<div class="todoitem" 
+[style.background-color]="isHighlighted? 'cyan' : 'white'
+">
   <p class="title">{{title}}
     <br>
     Is Completed: {{isComplete()}}
@@ -14,8 +16,10 @@
   <h4 *ngIf="!isComplete()">
     Task is pending... Need to be completed
   </h4>
-  <input type="text" id="inputBox" [(ngModel)]="inputValue" (keyup)="updateDisplay()" />  
-  <h4 id="show">{{ displayValue}}</h4>
+  <input type="text" id="inputBox" (keyup)="updateDisplay($event)" />  
+  <h4 id="show">{{ displayValue()}}</h4>
+
   <button type="button" [disabled]="buttonDisable()" (click)="toggleCompleted() ">Completed</button>
+
   <button type="button" [disabled]="!buttonDisable()" (click)="toggleCompleted()">Not Completed</button>
 </div>
